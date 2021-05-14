@@ -6,7 +6,7 @@ import {
 
 const visibiltiesDict = {
     [CREATE_POPUP_VISIBILTY]: (state, action) => {
-        const { destVisibilty: createPopupVisibilty } = action.payload;
+        const { destVisibility: createPopupVisibilty } = action.payload;
         return {
             ...state,
             visibilties: {
@@ -16,7 +16,7 @@ const visibiltiesDict = {
         }
     },
     [EDIT_POPUP_VISIBILTY]: (state, action) => {
-        const { destVisibilty: editPopupVisibilty } = action.payload;
+        const { destVisibility: editPopupVisibilty } = action.payload;
         return {
             ...state,
             visibilties: {
@@ -26,7 +26,7 @@ const visibiltiesDict = {
         }
     },
     [DETAILS_POPUP_VISIBILTY]: (state, action) => {
-        const { destVisibilty: detailsPopupVisibilty } = action.payload;
+        const { destVisibility: detailsPopupVisibilty } = action.payload;
         return {
             ...state,
             visibilties: {
@@ -36,7 +36,7 @@ const visibiltiesDict = {
         }
     },
     [DELETE_POPUP_VISIBILTY]: (state, action) => {
-        const { destVisibilty: deletePopupVisibilty } = action.payload;
+        const { destVisibility: deletePopupVisibilty } = action.payload;
         return {
             ...state,
             visibilties: {
@@ -46,7 +46,7 @@ const visibiltiesDict = {
         }
     },
     [DELETE_DIALOG_VISIBILTY]: (state, action) => {
-        const { destVisibilty: deleteDialogVisibilty } = action.payload;
+        const { destVisibility: deleteDialogVisibilty } = action.payload;
         return {
             ...state,
             visibilties: {

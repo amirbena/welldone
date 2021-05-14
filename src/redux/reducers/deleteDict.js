@@ -1,5 +1,7 @@
 import { CATEGORIES } from '../../constants/localStorageKeys';
 import { DELETE_CATEGORY } from '../action-types';
+import { changeDisablesValue } from './enableDict';
+
 
 const deleteDict = {
     [DELETE_CATEGORY]: (state, action) => {
@@ -9,11 +11,13 @@ const deleteDict = {
         localStorage.setItem(CATEGORIES, JSON.stringify(deletedCategories));
         return {
             ...state,
+            selectedId: -1,
+            enables: changeDisablesValue(state, true),
             categoriesData: {
                 ...state.categoriesData,
                 categories: deletedCategories,
             },
-            selectedId: -1
+            
         }
     }
 }

@@ -1,5 +1,6 @@
 import { CATEGORIES } from '../../constants/localStorageKeys';
 import { EDIT_CATEGORY, CHANGE_TEXT_EDIT, CHANGE_EDIT_BAR_VISIBILTY } from '../action-types';
+import { changeDisablesValue } from './enableDict';
 
 
 const editDict = {
@@ -8,7 +9,7 @@ const editDict = {
         return {
             ...state,
             categoryEdit: {
-                ...state.categoryEdit,
+                editText: editVisible? state.categoryEdit.editText :"",
                 editVisible
             }
         }
@@ -16,8 +17,8 @@ const editDict = {
     [EDIT_CATEGORY]: (state, action) => {
         const editedCategories = [...state.categoriesData.categories];
         const indexFound = editedCategories.findIndex(category => category.id === state.selectedId);
-        console.log(state.categoryEdit.editText);
         editedCategories[indexFound].text = state.categoryEdit.editText;
+        editedCategories[indexFound].clicked = false;
         localStorage.setItem(CATEGORIES, JSON.stringify(editedCategories));
         return {
             ...state,
@@ -25,6 +26,8 @@ const editDict = {
                 ...state.categoriesData,
                 categories: editedCategories
             },
+            selectedId: -1,
+            enables: changeDisablesValue(state, true),
             categoryEdit: {
                 editText: "",
                 editVisible: false

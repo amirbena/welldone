@@ -7,20 +7,20 @@ const DeleteDialog = () => {
     const { deleteDialogVisibilty } = useSelector(state => state.visibilties);
     const dispatch = useDispatch();
     const handleClose = () => {
-        dispatch(setDeleteDialogVisibilty(false));
-        dispatch(setDeletePopupVisibilty(true));
+        dispatch(setDeleteDialogVisibilty(false))
     };
 
     const handleDelete = () => {
         dispatch(deleteSelectedCategory());
         handleClose();
+        dispatch(setDeletePopupVisibilty(true));
     };
 
     return (
         <Dialog open={deleteDialogVisibilty} onClose={handleClose}>
-            <DialogTitle>Show Category</DialogTitle>
+            <DialogTitle>Are you sure to delete?</DialogTitle>
             <DialogActions>
-                <Button onClick={handleDelete} style={{ backgroundColor: "red" }}>
+                <Button onClick={handleDelete} color="secondary">
                     Delete
                 </Button>
                 <Button onClick={handleClose} autoFocus color="primary">

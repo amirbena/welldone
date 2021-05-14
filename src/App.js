@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { getCategoriesFromLocalStorage } from './redux/actions';
-import { Switch, Link, Redirect, Route } from 'react-router-dom';
+import { Switch, Redirect, Route } from 'react-router-dom';
 import AllCategories from './components/allCategories/allCategories';
 import CreateCatergory from './components/createCategory/createCategory';
 import './App.css';

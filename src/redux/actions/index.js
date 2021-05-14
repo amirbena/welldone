@@ -38,7 +38,7 @@ export const changeEditBarVisibiltity = destVisibility => {
 
 export const editCategoryAction = () => {
     return {
-        type: ActionTypes.CREATE_CATEGORY,
+        type: ActionTypes.EDIT_CATEGORY,
         payload: {}
     }
 }
@@ -86,7 +86,7 @@ export const setDeletePopupVisibilty = destVisibility => {
     }
 }
 
-export const setDeleteDialogVisibilty= destVisibility=>{
+export const setDeleteDialogVisibilty = destVisibility => {
     return {
         type: ActionTypes.DELETE_DIALOG_VISIBILTY,
         payload: { destVisibility }

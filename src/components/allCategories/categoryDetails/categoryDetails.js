@@ -20,7 +20,7 @@ const ShowCategory = () => {
             <DialogContent>
                 <Grid container xs={12}>
                     <Grid item xs={6}>
-                        <h2>Category Name</h2>
+                        <h3>Category Name</h3>
                     </Grid>
                     <Grid item xs={6}>
                         <TextField label="Category Name" disabled value={editText} variant="filled" />
@@ -28,7 +28,7 @@ const ShowCategory = () => {
                 </Grid>
             </DialogContent>
             <DialogActions>
-                <Button onClick={handleClose} autoFocus style={{ backgroundColor: "red" }}>
+                <Button onClick={handleClose} autoFocus color="secondary">
                     Cancel
                 </Button>
             </DialogActions>

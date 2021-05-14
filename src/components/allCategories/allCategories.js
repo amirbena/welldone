@@ -74,32 +74,32 @@ const AllCategories = () => {
     }
 
     return (
-        <Grid container xs={10} style={{ marginLeft: "10px" }}>
-            <Grid item xs={12}>
+        <Grid container xs={10} justify="center">
+            <Grid container justify="center">
                 <h1>All Categories</h1>
             </Grid>
-            <Grid item xs={12}>
-                <Grid item xs={12} style={{ marginLeft: "730px" }}>
-                    <ActionButtons />
-                </Grid>
+            <Grid container justify="flex-end">
+                <ActionButtons />
             </Grid>
 
+            <Grid container style={{marginLeft: "10px"}}>
+                <TableContainer component={Paper}>
+                    <Table>
+                        <TableHead>
+                            <StyledTableCell>
+                                <StyledTableRow align="right"><h1>Category Name</h1></StyledTableRow>
+                            </StyledTableCell>
+                        </TableHead>
+                        <TableBody>
+                            {categories.map((category, index) => (
+                                <Category key={"C" + index} category={category} />
+                            ))}
+                        </TableBody>
+                    </Table>
 
-            <TableContainer component={Paper}>
-                <Table>
-                    <TableHead>
-                        <StyledTableCell>
-                            <StyledTableRow align="right"><h1>Category Name</h1></StyledTableRow>
-                        </StyledTableCell>
-                    </TableHead>
-                    <TableBody>
-                        {categories.map((category,index) => (
-                            <Category key={"C"+ index} category={category} />
-                        ))}
-                    </TableBody>
-                </Table>
+                </TableContainer>
+            </Grid>
 
-            </TableContainer>
             <DeleteCategoryDialog />
             <CategoryDetails />
             <EditCategory />

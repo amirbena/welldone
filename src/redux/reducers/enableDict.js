@@ -1,7 +1,7 @@
 import { SELECT_ITEM, DESELECT_ITEM } from '../action-types'
 
 
-const changeDisablesValue = (state, destinationVal) => {
+export const changeDisablesValue = (state, destinationVal) => {
     return {
         ...state.enables,
         editDisabled: destinationVal,
@@ -14,12 +14,11 @@ const changeDisablesValue = (state, destinationVal) => {
 const enablesDict = {
     [SELECT_ITEM]: (state, action) => {
         const { id } = action.payload;
-        const { categories } = state.categoriesData;
-        let newCategories = [...categories];
-        let indexFound = -1;
-        newCategories = newCategories.map((category, index) => {
-            if (category.id === id) indexFound = index;
-            return { ...category, clicked: category.id === id };
+        let newCategories = [...state.categoriesData.categories];
+        let index = -1;
+        newCategories = newCategories.map((category, i) => {
+            if (category.id === id) index = i;
+            return {...category, clicked: category.id === id}
         })
         return {
             ...state,
@@ -31,7 +30,7 @@ const enablesDict = {
             enables: changeDisablesValue(state, false),
             categoryEdit: {
                 ...state.categoryEdit,
-                editText: newCategories[indexFound].text
+                editText: newCategories[index].text
             }
         }
     },
