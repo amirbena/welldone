@@ -27,7 +27,7 @@ const EditCategory = () => {
             <DialogContent>
                 <Grid container xs={12}>
                     <Grid item xs={6}>
-                        <h3>Category Name</h3>
+                        <p>Category Name</p>
                     </Grid>
                     <Grid item xs={6}>
                         <TextField label="Category Name" value={editText} onChange={onEditText} variant="filled" />

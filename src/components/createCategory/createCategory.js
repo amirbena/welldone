@@ -33,22 +33,34 @@ const CreateCategory = () => {
         dispatch(changeCreationText(text));
     }
 
+    const returnToCategories = () => {
+        dispatch(changeCreationText(""));
+        history.push("/");
+    }
+
     return (
         <Grid container xs={12}>
             <Grid container justify="center">
                 <h1>Add New Category</h1>
             </Grid>
 
-            <Grid container justify="center" spacing={6}>
-                <Grid item xs>
+            <Grid container justify="center" >
+                <Grid item xs={3}>
                     <h3>Category Name</h3>
                 </Grid>
-                <Grid item xs>
+                <Grid item xs={2}>
                     <TextField label="Category Name" value={createText} onChange={changeText} variant="outlined" />
                 </Grid>
             </Grid>
-            <Grid container style={{marginTop: "20px"}} justify="center">
+
+            <Grid container style={{ marginTop: "20px" }} justify="center" spacing={4}>
+                <Grid item>
+                    <Button color="secondary" variant="contained" onClick={returnToCategories}>To Categories</Button>
+                </Grid>
+                <Grid item>
                 <Button variant="contained" color="primary" disabled={createText === ""} onClick={handleClick}>Add Category</Button>
+                </Grid>
+               
             </Grid>
 
             <Snackbar open={createPopupVisibilty} autoHideDuration={autoHideDuration} >
